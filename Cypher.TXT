@@ -1,0 +1,55 @@
+TCypher component
+*****************
+
+TCypher is a component that allows for simple string encryption/decryption.
+The component allows for either setting a random key seed directly or to
+set the key seed by way of a password/key string.
+Component is based on code developed for a equivalent component in Delphi
+by Gordon Bamber.
+
+To install:
+-----------
+Unzip the component source in your component source directory (my
+directory is "drv:\sibyl\Components\...".  Compile the source, then move
+the Cypher.SPU to the Sibyl COMPNT directory.
+In Sibyl, choose 'Component', then 'install'.  Go to the COMPNT directory 
+and select 'Cypher.SPU'.  Select the TCypher component and click OK.
+The TCypher component will appear in a tab labeled 'Custom'.  To change
+the component location, edit the EXPORTS line in the source.
+
+TCypher methods:
+----------------
+<none available>
+
+TCypher properties:
+-------------------
+PlainStr - R/W, STRING.  Property is only settable during runtime and 
+           allows setting a string to encrypt or reading a decrypted
+           string.
+CypherStr - R/W, STRING.  Property is only available during runtime and
+            allows reading the encrypted string out or setting an 
+            encrypted sting to decrypted (with proper key or keystr set).
+Key - R/W, LONGINT.  Property is available during design and allows the 
+      input of the encryption seed value/key.
+KeyStr - R/W, STRING.  Propert is settable during design and allows a 
+         key string to determine and create the key used to encrypt or
+         decrypt with.
+Version - Read only (not stored).  Property is available during design.  
+          Property returns the current version of the TCypher component.
+
+To use:
+-------
+Drop the tcypher component on form.  From the IDE, you can set the keystr
+or key (note: setting key empties the keystr field, setting keystr sets 
+the key field).
+During runtime, assign a plain text string to the PlainStr property,
+CypherStr will then fill in with the encrypted string of the plainstr
+property (based on currently set key or keystr properties).  To decrypt,
+set key or keystr to previous value, the set the CypherStr property with
+the encrypted string.  Read the decrypted string from the PlainStr
+property.
+
+Any comments, suggestions, bug fixes, feel free to contact me.
+
+- Michael G. Slack (slack@ibm.net), 1998/03/22
+
